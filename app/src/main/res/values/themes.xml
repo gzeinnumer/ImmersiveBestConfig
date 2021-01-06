@@ -15,7 +15,7 @@
     </style>
 
     <style name="Theme.VeryFullScreen.Splash" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/holo_red_light</item>
         <item name="colorPrimary">@android:color/holo_red_light</item>
         <item name="colorPrimaryVariant">@android:color/holo_green_light</item>
         <item name="colorOnPrimary">@android:color/holo_blue_light</item>

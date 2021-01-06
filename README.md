@@ -11,6 +11,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/teal_200"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -150,7 +151,7 @@ public class GblFunction {
 ```xml
 <resources xmlns:tools="http://schemas.android.com/tools">
     <style name="Theme.VeryFullScreen.Splash" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/holo_red_light</item>
         <item name="colorPrimary">@android:color/holo_red_light</item>
         <item name="colorPrimaryVariant">@android:color/holo_green_light</item>
         <item name="colorOnPrimary">@android:color/holo_blue_light</item>
