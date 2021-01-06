@@ -19,6 +19,9 @@
         <item name="colorPrimary">@android:color/holo_red_light</item>
         <item name="colorPrimaryVariant">@android:color/holo_green_light</item>
         <item name="colorOnPrimary">@android:color/holo_blue_light</item>
+        <item name="colorSecondary">@android:color/holo_red_light</item>
+        <item name="colorSecondaryVariant">@android:color/holo_green_light</item>
+        <item name="colorOnSecondary">@android:color/holo_blue_light</item>
         <item name="android:fitsSystemWindows">false</item>
         <item name="android:navigationBarColor">@color/purple_700</item>
     </style>
