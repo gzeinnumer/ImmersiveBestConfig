@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+#### GblFunction
 - `GblFunction.java`
 ```java
 public class GblFunction {
