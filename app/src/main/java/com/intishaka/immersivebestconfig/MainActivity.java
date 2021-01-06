@@ -28,8 +28,44 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setFullScreen();
+        setForceImmersiveScreen();
+
         setContentView(R.layout.activity_main);
+
         setPaddingToTopParentView();
+    }
+
+    private void setFullScreen() {
+        //SYSTEM_UI_FLAG_IMMERSIVE_STICKY -> AUTO HIDE
+        //SYSTEM_UI_FLAG_IMMERSIVE -> NOT AUTO HIDE | CAN SET BACK HOME COLOR
+        int decore =
+                View.SYSTEM_UI_FLAG_IMMERSIVE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        // Hide the nav bar and status bar
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //enable this tho maker icon status bar become black
+            decore += View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+        }
+
+        getWindow().getDecorView().setSystemUiVisibility(decore);
+    }
+
+    private void setForceImmersiveScreen() {
+        final Handler forceImmersive = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                setFullScreen();
+
+                forceImmersive.postDelayed(this, 5000);
+            }
+        };
+
+        forceImmersive.postDelayed(runnable, 5000);
     }
 
     private void setPaddingToTopParentView() {
@@ -50,24 +86,5 @@ public class MainActivity extends AppCompatActivity {
         //set padding pada button, agar tidak memaka view
         LinearLayout parent = findViewById(R.id.parent);
         parent.setPadding(0, GblFunction.getStatusBarHeight(this), 0, 0);
-    }
-
-    private void setFullScreen() {
-        //SYSTEM_UI_FLAG_IMMERSIVE_STICKY -> AUTO HIDE
-        //SYSTEM_UI_FLAG_IMMERSIVE -> NOT AUTO HIDE
-        int decore =
-                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        // Hide the nav bar and status bar
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            //enable this tho maker icon status bar become black
-            decore += View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-        }
-
-        getWindow().getDecorView().setSystemUiVisibility(decore);
     }
 }
