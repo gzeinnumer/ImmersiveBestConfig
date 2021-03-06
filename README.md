@@ -53,9 +53,18 @@ public class MainActivity extends AppCompatActivity {
                         // Hide the nav bar and status bar
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            getWindow().setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
+        }
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             //enable this tho maker icon status bar become black
             decore += View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            //enable this tho maker icon Navigation bar become black
+            decore +=  View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
         }
 
         getWindow().getDecorView().setSystemUiVisibility(decore);
