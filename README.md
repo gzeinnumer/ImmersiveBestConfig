@@ -170,6 +170,7 @@ public class GblFunction {
         <item name="colorOnSecondary">@android:color/holo_blue_light</item>
         <item name="android:fitsSystemWindows">false</item>
         <item name="android:navigationBarColor">@color/purple_700</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
 </resources>
 ```
